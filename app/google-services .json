@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1036209001121",
+    "project_id": "consulting-92eae",
+    "storage_bucket": "consulting-92eae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036209001121:android:52e9c2d1b87460511fd6e0",
+        "android_client_info": {
+          "package_name": "com.kenjoel.muigaiconsulting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036209001121-nuvee718c99sik2g3ibs9v9v5ej7curu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kenjoel.muigaiconsulting",
+            "certificate_hash": "f999f9afdfdaa820ad348d0e558be7db38ed9baa"
+          }
+        },
+        {
+          "client_id": "1036209001121-05q80l8lto7h0nh3iv1pco51togkkb4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-yfaK0cBEmJgFsc5M6JfUI1gL1eqNv94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036209001121-05q80l8lto7h0nh3iv1pco51togkkb4u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
