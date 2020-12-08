@@ -3,6 +3,7 @@ package com.kenjoel.muigaiconsulting;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -70,7 +72,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(RegisterActivity.this, "Welcome", Toast.LENGTH_LONG).show();
+                    sendVerificationEmail();
                     mAuth.signOut();
+                    redirectToLogin();
                 }
             }
         });
@@ -99,5 +103,29 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }else {
             return false;
         }
+    }
+
+    public void sendVerificationEmail(){
+        final FirebaseUser user = mAuth.getCurrentUser();
+
+        if(user != null){
+            user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()){
+                        Toast.makeText(RegisterActivity.this, "Sent verification Emal", Toast.LENGTH_SHORT);
+                    }else{
+                        Toast.makeText(RegisterActivity.this, "Email not sent", Toast.LENGTH_SHORT);
+                    }
+                }
+            });
+        }
+
+    }
+
+    public void redirectToLogin(){
+        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
